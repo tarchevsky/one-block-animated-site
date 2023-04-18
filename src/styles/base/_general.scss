@@ -1,0 +1,228 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+html {
+  position: relative;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.8rem, 1.2vw + 0.2rem, 1rem);
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  color: $base-color;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+::selection {
+   background: rgba(189, 189, 189, 0.54);
+ }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  margin-block: $ind;
+  letter-spacing: normal;
+}
+
+h1 {
+  font-size: revert;
+}
+
+h2 {
+  font-size: revert;
+}
+
+h3 {
+  font-size: revert;
+}
+
+h4 {
+  font-size: revert;
+}
+
+h5 {
+  font-size: revert;
+}
+
+h6 {
+  font-size: revert;
+}
+
+p {
+  margin-block: $ind;
+}
+
+ul {
+  margin-block: $ind;
+  padding-inline-start: $ind;
+}
+
+li {
+  list-style: none;
+
+  &:before {
+    display: inline-block;
+    content: "";
+    position: relative;
+    left: -10px;
+    top: -3px;
+    height: 3px;
+    width: 3px;
+    background-color: $base-color;
+    border-radius: 100%;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: $border;
+  transition: color $transition;
+
+  :visited {
+    color: rgba(51, 51, 51, 0.66);
+  }
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+blockquote {
+  margin-block: $ind;
+  margin-inline: 0;
+}
+
+section, aside {
+  display: block;
+  margin-block-start: $ind;
+}
+
+.container, .layout {
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80px minmax(75vh, 1fr) 80px;
+  grid-template-columns: minmax(250px, $container);
+  justify-content: center;
+  gap: $gap;
+}
+
+.layout {
+  position: relative;
+  display: grid;
+  gap: $gap;
+  margin-inline: $layout-margin;
+
+  &-none {
+    margin-inline: -$layout-margin;
+  }
+
+  &-exist {
+    margin-inline: $layout-margin;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $gap;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr);
+  gap: $gap;
+}
+
+.content-sidebar {
+  display: grid;
+  grid-template-columns: minmax(350px, auto) 1fr;
+  gap: 0 $gap;
+  height: 100%;
+}
+
+// Сайдбар в layout-none
+
+.layout-none {
+  .content-sidebar {
+    .content {
+      margin-inline-end: $ind;
+    }
+  }
+}
+
+// Класс выключено
+
+.disabled {
+  pointer-events: none;
+  color: $disabled;
+}
+
+// Класс визуально скрыто
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+// Цветовые схемы
+
+@media screen and (max-width: 1300px) {
+  .container {
+    padding: 0 $ind;
+  }
+
+  .layout {
+    margin-inline: 2vw;
+
+    &-none {
+      margin-inline: -2vw;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .layout {
+    &-none {
+      .content-sidebar {
+        .content {
+          margin-inline: $ind;
+        }
+      }
+    }
+  }
+  .content-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .layout, .row {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+// Стиль страницы 404
+
+.not-available {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  h1, h2 {
+    text-align: center;
+    font-weight: 100;
+  }
+}

@@ -1,0 +1,25 @@
+extends layouts/default
+
+block variables
+    - const title = "The Art of Árita"
+    - const description = "Дескрипшен - это краткое описание сайта, страницы, которое выводится в поиске в виде сниппета под названием сайта. Очень важно как для доступности сайта, так и для стандартов поисковых систем"
+    - const keywords = "ключевые, слова, можно словосочетаниями, короткими ёмкими фразами, нужно для поисковых систем, но едва ли, но пусть будет"
+
+block custom-cursor
+    include ../blocks/components/custom-cursor/custom-cursor
+
+block preloader
+    include ../blocks/components/preloader/preloader
+
+block helper-input
+    include ../blocks/components/helper-input/helper-input
+
+block header
+    include ../blocks/modules/header/header
+
+block content
+    include ../blocks/modules/main/main
+
+block scripts
+    script(src="js/vendor.js")
+    script(src="js/main.js")

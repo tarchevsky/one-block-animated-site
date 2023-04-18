@@ -1,0 +1,159 @@
+.slides {
+  &-slide {
+    &__1 {
+      background-color: #b1b2b3;
+    }
+
+    &__2 {
+      background-color: #f1f1f1;
+    }
+
+    &__3 {
+      background-color: #b5b7b4;
+    }
+
+    &__4 {
+      background-color: #b5b8c2;
+    }
+
+    &__5 {
+      background-color: #c4c3c0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+  }
+
+  &-container {
+    &__left {
+      flex-shrink: 0;
+      position: relative;
+      width: 48%;
+      padding-block-start: 68px;
+    }
+
+    &__slide {
+      position: absolute;
+      z-index: 20;
+      width: 100%;
+      inset-inline-start: 0;
+      inset-block-start: 117px;
+      pointer-events: none;
+      opacity: 0;
+
+      &--active {
+        pointer-events: auto;
+        opacity: 1;
+      }
+    }
+
+    &__text {
+      flex-shrink: 0;
+      position: relative;
+      width: 100%;
+    }
+
+    &__title {
+      margin-block: 0 70px;
+      font-family: Merriweather, sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 7.5rem;
+      line-height: 130px;
+      color: #fff;
+
+      /* opacity: 0;
+      transform: translateY(100px); */
+
+      &--dark {
+        color: $base-color;
+      }
+    }
+
+    &__descr {
+      display: flex;
+
+      /* opacity: 0;
+      transform: translateY(100px); */
+    }
+  }
+
+  &-bg {
+    flex-shrink: 0;
+    position: relative;
+    width: 57.4%;
+    margin-inline-start: -5.3%;
+    height: 560px;
+    overflow: hidden;
+
+    &__inner {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+
+      a {
+        border-bottom: 0;
+      }
+
+      .index {
+        z-index: 10;
+      }
+
+      &--current {
+        z-index: 11;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &__link {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      width: 100%;
+      height: 100%;
+      background: center center/cover no-repeat;
+    }
+  }
+
+  &-shapes {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    width: 33.5%;
+    height: 100%;
+
+    &__item {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0;
+
+      &--current {
+        z-index: 11;
+        opacity: 1;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.main {
+  &-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    min-height: 750px;
+    margin-block-start: 0;
+    padding-inline: $layout-margin; // layout-none
+    transition: background-color 1s cubic-bezier(0.77, 0.125, 0.265, 1.04);
+
+    &__explore {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      /* opacity: 0;
+      transform: translateY(100px); */
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .main {
+    &-section {
+      padding-inline: 2vw;
+    }
+  }
+}
